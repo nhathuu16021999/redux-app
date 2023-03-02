@@ -11,6 +11,9 @@ function* handleLogin(payload: LoginPayload) {
         name: 'Nhat Huu',
       })
     );
+
+    // redirect to admin page
+    // yield put(push('/admin'));
   } catch (error: any) {
     yield put(authActions.loginFailed(error.message));
   }
@@ -19,6 +22,8 @@ function* handleLogin(payload: LoginPayload) {
 function* handleLogout() {
   yield delay(2000);
   localStorage.removeItem('access_token');
+  // redirect to login page
+  // yield put(push('/login'));
 }
 
 function* watchLoginFlow() {
